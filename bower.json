@@ -1,0 +1,29 @@
+{
+  "name": "aurelia-skeleton-navigation",
+  "description": "A starter kit for building a standard navigation-style app with Aurelia.",
+  "main": "dist/main.js",
+  "authors": [
+    "Rob Eisenberg <rob@bluespire.com> (http://robeisenberg.com/)"
+  ],
+  "license": "CC0-1.0",
+  "keywords": [
+    "aurelia",
+    "navigation",
+    "skeleton"
+  ],
+  "homepage": "https://github.com/aurelia/skeleton-navigation",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "iron-elements": "PolymerElements/iron-elements#~1.0.6",
+    "paper-elements": "PolymerElements/paper-elements#~1.0.6",
+    "paper-behaviors": "PolymerElements/paper-behaviors#~1.0.10"
+  }
+}

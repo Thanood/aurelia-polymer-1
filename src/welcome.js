@@ -1,10 +1,24 @@
 //import {computedFrom} from 'aurelia-framework';
+import $ from "jquery";
 
 export class Welcome {
   heading = 'Welcome to the Aurelia Navigation App!';
   firstName = 'John';
   lastName = 'Doe';
   previousValue = this.fullName;
+  selectedTab = 1;
+  // pastriesObjects = [
+  //   { id: 1, name: "Croissant" },
+  //   { id: 2, name: "Donut" },
+  //   { id: 3, name: "Financier" },
+  //   { id: 4, name: "Madeleine" },
+  // ];
+  // favPastryObject = { id: 2, name: "Donut" };
+
+  pastries = [ "Bear Claw", "Pie" ];
+  favPastry = "Donut";
+
+
 
   //Getters can't be directly observed, so they must be dirty checked.
   //However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
@@ -17,7 +31,7 @@ export class Welcome {
 
   submit() {
     this.previousValue = this.fullName;
-    alert(`Welcome, ${this.fullName}!`);
+    console.log(`Welcome, ${this.fullName}!`);
   }
 
   canDeactivate() {

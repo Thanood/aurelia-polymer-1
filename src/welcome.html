@@ -1,20 +1,93 @@
+
 <template>
   <section class="au-animate">
-    <h2>${heading}</h2>
-    <form role="form" submit.delegate="submit()">
-      <div class="form-group">
-        <label for="fn">First Name</label>
-        <input type="text" value.bind="firstName" class="form-control" id="fn" placeholder="first name">
+    <form role="form">
+
+      <paper-input
+        auto-validate pattern="[a-zA-Z]*"
+        error-message="letters only!"
+        label="First Name"
+        value.two-way="firstName">
+      </paper-input>
+
+      <paper-input
+        char-counter
+        maxlength="10"
+        label="Last Name"
+        value.two-way="lastName">
+      </paper-input>
+
+      <paper-checkbox
+        checked.two-way="likesCats">
+        Likes Cats?
+      </paper-checkbox>
+
+      <div>
+        <paper-dropdown-menu label="Your favourite pastry">
+          <paper-menu class="dropdown-content" selected.two-way="favPastry" attr-for-selected="value">
+            <!-- Begin works when selected -->
+            <paper-item value="Croissant">Croissant</paper-item>
+            <paper-item value="Donut">Donut</paper-item>
+            <paper-item value="Financier">Financier</paper-item>
+            <paper-item value="Madeleine">Madeleine</paper-item>
+            <!-- End works when selected -->
+
+            <!-- Begin does not work when selected -->
+            <paper-item repeat.for="pastry of pastries" value.bind="pastry">${pastry}</paper-item>
+            <!-- End does not work when selected -->
+          </paper-menu>
+        </paper-dropdown-menu>
       </div>
+
+      <hr>
+
       <div class="form-group">
-        <label for="ln">Last Name</label>
-        <input type="text" value.bind="lastName" class="form-control" id="ln" placeholder="last name">
-      </div>
-      <div class="form-group">
-        <label>Full Name</label>
+        <label>Binding Tests</label>
         <p class="help-block">${fullName | upper}</p>
+        <p class="help-block">${ likesCats ? "Does like cats" : "Does not like cats" }</p>
+        <p class="help-block">favPastry: ${favPastry}</p>
+        <p class="help-block">favPastryObject.name: ${favPastryObject.name}</p>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+
+      <hr>
+
+      <paper-button
+        style="background: #2196F3; color: #FFFFFF"
+        click.trigger="submit()">
+        Submit
+      </paper-button>
+
+      <hr>
+
+      <paper-fab icon="add"></paper-fab>
+
+      <hr>
+
+      <h1>Tabs Test</h1>
+
+      <paper-tabs style="background: #2196F3; color: #FFFFFF" selected.two-way="selectedTab">
+        <paper-tab>TAB 1</paper-tab>
+        <paper-tab>TAB 2</paper-tab>
+        <paper-tab>TAB 3</paper-tab>
+      </paper-tabs>
+
+      <iron-pages selected.two-way="selectedTab">
+        <div>Page One</div>
+        <div>Page Two</div>
+        <div>Page Three</div>
+      </iron-pages>
+
+      <hr>
+
+      <paper-card depth="5" heading="Card Title">
+        <div class="card-content">Some content</div>
+        <div class="card-actions">
+          <paper-button>Some action</paper-button>
+        </div>
+      </paper-card>
+
+      <hr>
+
     </form>
   </section>
 </template>
